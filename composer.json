@@ -1,5 +1,5 @@
 {
-    "name": "pedrowilll/facebook-bot-sdk",
+    "name": "pedrowilll/facebook-dino-bot-sdk",
     "type": "Library",
     "require": {
         "phpunit/phpunit": "^7.0"
