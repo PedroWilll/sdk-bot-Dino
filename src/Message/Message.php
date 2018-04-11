@@ -2,7 +2,7 @@
 
 namespace CodeBot\Message;
 
-class Message 
+interface Message 
 {
    public function __construct (string $recipientId);
    public function message (string $messageText):array;
