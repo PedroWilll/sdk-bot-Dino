@@ -1,5 +1,5 @@
 <?php
-// classe para verificação se sua aplicação está ativa
+
 namespace CodeBot;
 
 
@@ -15,5 +15,4 @@ class WebHook
         }
         return false;
     }
-    
 }

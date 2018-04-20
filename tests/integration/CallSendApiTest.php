@@ -7,13 +7,12 @@ use PHPUnit\Framework\TestCase;
 
 class CallSendApiTest extends TestCase
 {
-
+    /**
+     * @expectedException  \GuzzleHttp\Exception\ClientException
+     */
     public function testMakeRequest()
-    {   /**
-        * @expectedException GuzzleHttp\Exception\ClientException 
-        */
-        $message = (new Text(1))->message('Oiii');
-        (new CallSendApi(pageAccessToken, '28aj82'))->make($message);
-
+    {
+        $message = (new Text(1))->message("Olá");
+        (new CallSendApi('123654'))->make($message);
     }
 }

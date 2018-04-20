@@ -1,19 +1,24 @@
 <?php
 
-namespace CodeBot\Message;
+
+namespace CodeBot\TemplatesMessage;
 
 
-class Audio implements Message
+use CodeBot\Element\ElementInterface;
+
+class ListTemplate implements TemplateInterface
 {
-
-    /**
-     * @var string
-     */
-    private $recipientId;
+    protected $products = [];
+    protected $recipientId;
 
     public function __construct(string $recipientId)
     {
         $this->recipientId = $recipientId;
+    }
+
+    public function add(ElementInterface $element)
+    {
+        $this->products[] = $element->get();
     }
 
     public function message(string $messageText): array
@@ -24,9 +29,10 @@ class Audio implements Message
             ],
             'message' => [
                 'attachment' => [
-                    'type' => 'audio',
+                    'type' => 'template',
                     'payload' => [
-                        'url' => $messageText
+                        'template_type' => 'list',
+                        'elements' => $this->products
                     ]
                 ]
             ]
